@@ -37,7 +37,12 @@ export class SingleLlPage {
       
       if ( current.elem == item ){
           this.linked_list = next;
-          this.printnodes()
+          this.printnodes();
+          if(this.cards.length == 0 )
+          {
+              this.linked_list.elem = null;
+              this.linked_list.next = null;
+          }
           return;
       }
       while(current != null){
