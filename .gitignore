@@ -35,3 +35,7 @@ $RECYCLE.BIN/
 Thumbs.db
 UserInterfaceState.xcuserstate
 /nbproject/private/
+www/build/main.js
+www/build/main.js
+www/build/main.js.map
+.sourcemaps/main.js.map
