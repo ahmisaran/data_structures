@@ -356,8 +356,7 @@ var SingleLlPage = (function () {
             this.linked_list = next;
             this.printnodes();
             if (this.cards.length == 0) {
-                this.linked_list.elem = null;
-                this.linked_list.next = null;
+                this.linked_list = new __WEBPACK_IMPORTED_MODULE_2__models_ll__["a" /* SLL */](null);
             }
             return;
         }
@@ -403,9 +402,10 @@ SingleLlPage = __decorate([
     Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["n" /* Component */])({
         selector: 'page-single-ll',template:/*ion-inline-start:"/Users/koorma/Learning/DS/data_structures/src/pages/single-ll/single-ll.html"*/'<!--\n  Generated template for the SingleLlPage page.\n\n  See http://ionicframework.com/docs/components/#navigation for more info on\n  Ionic pages and navigation.\n-->\n<ion-header>\n\n  <ion-navbar>\n    <ion-title>singleLL</ion-title>\n  </ion-navbar>\n\n</ion-header>\n\n\n<ion-content padding>\n    \n        <ion-label>Enter Data to Add</ion-label>\n        <ion-input type="text" name = "data" [(ngModel)]="data" ></ion-input>\n        <button ion-button (click)="addNode()">Add Data</button>\n   \n        <ion-card *ngFor="let card of cards">\n            <button ion-item round color="secondary" padding (swipe)="deleteNode($event, card)">{{card}}</button>\n        </ion-card>\n        \n    \n</ion-content>\n'/*ion-inline-end:"/Users/koorma/Learning/DS/data_structures/src/pages/single-ll/single-ll.html"*/,
     }),
-    __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["g" /* NavController */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["h" /* NavParams */]])
+    __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["g" /* NavController */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["g" /* NavController */]) === "function" && _a || Object, typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["h" /* NavParams */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["h" /* NavParams */]) === "function" && _b || Object])
 ], SingleLlPage);
 
+var _a, _b;
 //# sourceMappingURL=single-ll.js.map
 
 /***/ })

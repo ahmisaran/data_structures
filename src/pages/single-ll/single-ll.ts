@@ -40,8 +40,7 @@ export class SingleLlPage {
           this.printnodes();
           if(this.cards.length == 0 )
           {
-              this.linked_list.elem = null;
-              this.linked_list.next = null;
+              this.linked_list = new SLL(null);
           }
           return;
       }
