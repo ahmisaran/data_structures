@@ -27,13 +27,28 @@ export class SingleLlPage {
     console.log('ionViewDidLoad SingleLlPage');
   }
   
-    updateCards()
-    {
-        
-    }
   deleteNode(event, item)
   {
+      let current = this.linked_list;
+      let next = this.linked_list.next;
       console.log("Delete node Called : " + event + " " + item)
+      console.log("Current Element = " + current.elem)
+      
+      
+      if ( current.elem == item ){
+          this.linked_list = next;
+          this.printnodes()
+          return;
+      }
+      while(current != null){
+          if (next.elem == item){
+              current.next = next.next;
+              this.printnodes();
+              break;
+          }
+          current = next;
+          next = next.next;
+      }
   }
     
   printnodes(){

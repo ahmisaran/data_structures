@@ -347,10 +347,25 @@ var SingleLlPage = (function () {
     SingleLlPage.prototype.ionViewDidLoad = function () {
         console.log('ionViewDidLoad SingleLlPage');
     };
-    SingleLlPage.prototype.updateCards = function () {
-    };
     SingleLlPage.prototype.deleteNode = function (event, item) {
+        var current = this.linked_list;
+        var next = this.linked_list.next;
         console.log("Delete node Called : " + event + " " + item);
+        console.log("Current Element = " + current.elem);
+        if (current.elem == item) {
+            this.linked_list = next;
+            this.printnodes();
+            return;
+        }
+        while (current != null) {
+            if (next.elem == item) {
+                current.next = next.next;
+                this.printnodes();
+                break;
+            }
+            current = next;
+            next = next.next;
+        }
     };
     SingleLlPage.prototype.printnodes = function () {
         var current = this.linked_list;
