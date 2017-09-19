@@ -17,6 +17,7 @@ export class SingleLlPage {
   linked_list ;
   cards : Array<any>;
   data : any;
+  reversed ;
   
   constructor(public navCtrl: NavController, public navParams: NavParams) {
       this.linked_list = new SLL(null);
@@ -31,9 +32,6 @@ export class SingleLlPage {
   {
       let current = this.linked_list;
       let next = this.linked_list.next;
-      console.log("Delete node Called : " + event + " " + item)
-      console.log("Current Element = " + current.elem)
-      
       
       if ( current.elem == item ){
           this.linked_list = next;
@@ -74,7 +72,7 @@ export class SingleLlPage {
 
       if(this.linked_list.elem == null){
           this.linked_list = temp;
-          console.log ("First node elem =  " + this.linked_list.elem)
+          this.printnodes();
           return;
       }
       
@@ -85,6 +83,35 @@ export class SingleLlPage {
       this.cards.push(current.elem)
       this.printnodes();
   }
-
+  
+  reverse(linked_list){
+      let current = this.reversed;
+      this.reverseFn(linked_list, current)
+      while (current!=null){
+          console.log("Reversed : " +  current.elem);
+          current = current.next;
+      }
+  }
+  
+  reverseFn(linked_list, current){
+      
+      let temp ;
+      if ( linked_list.next  === null)
+      {
+          console.log("Next Element : " + linked_list.elem)
+          temp = new SLL(linked_list.elem)
+          current = temp;
+          return 
+      }
+    //  console.log("Current Element : " + linked_list.elem)
+      current.next = new SLL(null)
+      this.reverseFn(linked_list.next, current.next)
+      console.log("Next Element : " + linked_list.elem)
+      temp = new SLL(linked_list.elem)
+      current = temp
+      return ;
+  }
+  
+  
     
 }

@@ -5,8 +5,11 @@
   Ionic pages and navigation.
 -->
 <ion-header>
-
-  <ion-navbar>
+    <ion-navbar>
+  <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+  
     <ion-title>singleLL</ion-title>
   </ion-navbar>
 
@@ -14,14 +17,13 @@
 
 
 <ion-content padding>
-    
-        <ion-label>Enter Data to Add</ion-label>
+    <ion-item>
+        <ion-label floating>Enter Data to Add</ion-label>
         <ion-input type="text" name = "data" [(ngModel)]="data" ></ion-input>
-        <button ion-button (click)="addNode()">Add Data</button>
-   
+   </ion-item>
+    <button ion-button (click)="addNode()">Add Data</button>
         <ion-card *ngFor="let card of cards">
-            <button ion-item round color="secondary" padding (swipe)="deleteNode($event, card)">{{card}}</button>
+            <button ion-item round color="secondary" text-center (swipe)="deleteNode($event, card)">{{card}}</button>
         </ion-card>
-        
-    
+   <button ion-button (click)="reverse(linked_list)">Reverse Data</button>
 </ion-content>
