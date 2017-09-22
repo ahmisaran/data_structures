@@ -18,12 +18,14 @@
 
 <ion-content padding>
     <ion-item>
-        <ion-label floating>Enter Data to Add</ion-label>
-        <ion-input type="text" name = "data" [(ngModel)]="data" ></ion-input>
+        <ion-label floating >Enter Data to Add</ion-label>
+        <ion-input type="text" text-center name = "data" [(ngModel)]="data" ></ion-input>
    </ion-item>
     <button ion-button (click)="addNode()">Add Data</button>
-        <ion-card *ngFor="let card of cards">
-            <button ion-item round color="secondary" text-center (swipe)="deleteNode($event, card)">{{card}}</button>
-        </ion-card>
-   <button ion-button (click)="reverse(linked_list)">Reverse Data</button>
+    <button ion-button (click)="reverse(linked_list)">Reverse Data</button>
+    
+    <ion-card *ngFor="let card of cards">
+        <button ion-item round color="secondary" text-center (swipe)="deleteNode($event, card)">{{card}}</button>
+    </ion-card>
+   
 </ion-content>

@@ -21,6 +21,7 @@ export class SingleLlPage {
   
   constructor(public navCtrl: NavController, public navParams: NavParams) {
       this.linked_list = new SLL(null);
+      this.reversed = new SLL(null);
       this.cards = [];
   }
 
@@ -35,7 +36,7 @@ export class SingleLlPage {
       
       if ( current.elem == item ){
           this.linked_list = next;
-          this.printnodes();
+          this.printnodes(this.linked_list);
           if(this.cards.length == 0 )
           {
               this.linked_list = new SLL(null);
@@ -45,7 +46,7 @@ export class SingleLlPage {
       while(current != null){
           if (next.elem == item){
               current.next = next.next;
-              this.printnodes();
+              this.printnodes(this.linked_list);
               break;
           }
           current = next;
@@ -53,8 +54,8 @@ export class SingleLlPage {
       }
   }
     
-  printnodes(){
-      let current = this.linked_list;
+  printnodes(current){
+      
       let tempCards : Array<any> = [];
       while(current != null ){
           console.log ("Print node elem =  " + current.elem)
@@ -72,7 +73,7 @@ export class SingleLlPage {
 
       if(this.linked_list.elem == null){
           this.linked_list = temp;
-          this.printnodes();
+          this.printnodes(this.linked_list);
           return;
       }
       
@@ -80,35 +81,42 @@ export class SingleLlPage {
           current = current.next;
       }
       current.next = temp;
-      this.cards.push(current.elem)
-      this.printnodes();
+      
+      this.printnodes(this.linked_list);
   }
   
   reverse(linked_list){
       let current = this.reversed;
-      this.reverseFn(linked_list, current)
+      this.reverseFn(linked_list)
+      current = this.reversed;
       while (current!=null){
           console.log("Reversed : " +  current.elem);
           current = current.next;
       }
+      this.printnodes(this.reversed);
   }
   
-  reverseFn(linked_list, current){
+  reverseFn(linked_list){
       
-      let temp ;
+      
+      let current = this.reversed;
       if ( linked_list.next  === null)
       {
-          console.log("Next Element : " + linked_list.elem)
-          temp = new SLL(linked_list.elem)
-          current = temp;
-          return 
+          console.log("First Element : " + linked_list.elem)
+          this.reversed = new SLL(linked_list.elem)
+          return ;
       }
-    //  console.log("Current Element : " + linked_list.elem)
-      current.next = new SLL(null)
-      this.reverseFn(linked_list.next, current.next)
-      console.log("Next Element : " + linked_list.elem)
-      temp = new SLL(linked_list.elem)
-      current = temp
+      
+      this.reverseFn(linked_list.next)
+
+      
+      current = this.reversed;
+      while(current.next!=null){
+          current = current.next;
+      }
+      current.next = new SLL(linked_list.elem);
+      console.log("Next Element : " + current.elem)
+
       return ;
   }
   
