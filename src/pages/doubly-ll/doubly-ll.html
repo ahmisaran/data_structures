@@ -17,5 +17,14 @@
 
 
 <ion-content padding>
-
+    <ion-item>
+        <ion-label floating>Enter the Data</ion-label>
+        <ion-input type="text" name="data" [(ngModel)]="data"></ion-input>
+    </ion-item>
+    <button ion-button (click)="addNode()">Add Data</button>
+    <button ion-button (click)="reverse()">Reverse Data</button>
+    
+    <ion-card *ngFor="let card of cards">
+        <button ion-item color="secondary" text-center (swipe)="deleteNode($event, card)">{{card}}</button>
+    </ion-card>
 </ion-content>
