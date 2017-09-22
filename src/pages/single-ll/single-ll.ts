@@ -94,6 +94,7 @@ export class SingleLlPage {
           current = current.next;
       }
       this.printnodes(this.reversed);
+      this.linked_list = this.reversed;
   }
   
   reverseFn(linked_list){

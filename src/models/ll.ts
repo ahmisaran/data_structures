@@ -15,4 +15,17 @@ export class SLL {
     }
 }
 
+export class DLL {
+    private elem;
+    private next;
+    private previous;
+
+    constructor(elem) {
+        this.elem = elem;
+        this.next = null;
+        this.previous = null;
+        console.log("this.elem = " + elem);
+    }
+}
+
 
