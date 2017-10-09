@@ -7,6 +7,8 @@ import { HomePage } from '../pages/home/home';
 import { ListPage } from '../pages/list/list';
 import { SingleLlPage } from '../pages/single-ll/single-ll';
 import { DoublyLlPage } from '../pages/doubly-ll/doubly-ll';
+import { StackPage } from '../pages/stack/stack';
+
 @Component({
   templateUrl: 'app.html'
 })
@@ -26,6 +28,7 @@ export class MyApp {
       { title: 'List', component: ListPage },
       { title: 'Single Linked List', component: SingleLlPage },
       { title: 'Double Linked List', component: DoublyLlPage },
+      { title: 'Stack', component: StackPage },
     ];
 
   }

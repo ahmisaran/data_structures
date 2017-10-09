@@ -16,7 +16,7 @@ import { DLL } from '../../models/ll'
   templateUrl: 'doubly-ll.html',
 })
 export class DoublyLlPage {
-  data;
+  data = null;
   dlinked_list;
   cards : Array<any>;
   
@@ -47,7 +47,11 @@ export class DoublyLlPage {
   }
   
   addNode(){
+      if (this.data == null){
+          return;
+      }
       let temp = new DLL(this.data)
+      this.data = null;
       let current = this.dlinked_list;
       let previous = null;
       if ( current.elem == null ){
